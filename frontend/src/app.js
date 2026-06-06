@@ -16,7 +16,7 @@ function App() {
 
     try {
       const response = await axios.post(
-        "https://smart-study-planner-7iz9.onrender.com",
+        "https://smart-study-planner-7iz9.onrender.com/api/upload",
         formData
       );
 
