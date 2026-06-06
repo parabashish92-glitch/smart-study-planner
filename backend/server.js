@@ -65,8 +65,11 @@ app.post("/api/upload", upload.single("file"), async (req, res) => {
 
     res.json({ name: "Student", subjects, ...plan });
   } catch (err) {
-    res.status(500).json({ error: "Error processing PDF" });
-  }
-});
+  console.error("PDF ERROR:", err);
+  res.status(500).json({
+    error: err.message,
+    stack: err.stack
+  });
+}
 
 app.listen(5000, () => console.log("Server running"));
